@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rxui:ReactiveContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    xmlns:vm="clr-namespace:RxUISamples.ViewModels;assembly=RxUISamples"
+    x:TypeArguments="vm:LoginViewModel"
+    x:Class="RxUISamples.UserInterface.Pages.LoginPage">
+    <ScrollView>
+        <StackLayout Padding="8">
+            <Image 
+                Aspect="AspectFit"
+                Source="rxui_logo.png"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Entry x:Name="username" Placeholder="Username" Text="{Binding Username, Mode=TwoWay}" />
+            <Entry x:Name="password" Placeholder="password" IsPassword="true" Text="{Binding Password, Mode=TwoWay}"/>
+            <ActivityIndicator IsRunning="{Binding IsLoggingIn}" VerticalOptions="CenterAndExpand" />
+            <Button x:Name="login" Text="Login" Command="{Binding AttemptLogin, Mode=OneWay}" VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ScrollView>
+</rxui:ReactiveContentPage>
