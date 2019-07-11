@@ -33,7 +33,9 @@ namespace RxUISamples.UserInterface.Pages
                         .DisposeWith(viewDisposables);
 
                     this.WhenAnyValue(x => x.ViewModel.UsernameValidation.IsValid)
-                        .Select(isValid => isValid ? (Color)Label.TextColorProperty.DefaultValue : Color.Red)
+                        .Select(isValid => 
+                            isValid ? 
+                            Color.Green : Color.Red)
                         .ObserveOn(RxApp.MainThreadScheduler)
                         .BindTo(this, view => view.username.BackgroundColor)
                         .DisposeWith(viewDisposables);

@@ -14,8 +14,9 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center" />
             <Entry x:Name="username" Placeholder="Username" Text="{Binding Username, Mode=TwoWay}" />
-            <Entry x:Name="password" Placeholder="password" Text="{Binding Password, Mode=TwoWay}"/>
-            <Button x:Name="login" Text="Login" Command="{Binding AttemptLogin, Mode=OneWay}" />
+            <Entry x:Name="password" Placeholder="password" IsPassword="true" Text="{Binding Password, Mode=TwoWay}"/>
+            <ActivityIndicator IsRunning="{Binding IsLoggingIn}" VerticalOptions="CenterAndExpand" />
+            <Button x:Name="login" Text="Login" Command="{Binding AttemptLogin, Mode=OneWay}" VerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ScrollView>
 </rxui:ReactiveContentPage>

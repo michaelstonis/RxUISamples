@@ -19,25 +19,25 @@ namespace RxUISamples.ViewModels
         public override void RegisterObservables(CompositeDisposable viewModelDisposables)
         {
             StartWorking =
-                ReactiveCommand
-                    .CreateFromTask(
-                        async () => 
-                        {
-                            var doesWantToWork = await WorkflowConfirmation.Handle("Are you sure you want to work?");
+ReactiveCommand
+    .CreateFromTask(
+        async () => 
+        {
+            var doesWantToWork = await WorkflowConfirmation.Handle("Are you sure you want to work?");
 
-                            if(!doesWantToWork)
-                            {
-                                WorkStatus = "Phew! We thought we were going to actually have to do something";
-                                return;
-                            }
+            if(!doesWantToWork)
+            {
+                WorkStatus = "Phew! We thought we were going to actually have to do something";
+                return;
+            }
 
-                            var reallyWantsToWork = await WorkflowConfirmation.Handle("Work is hard though, are you REALLY sure?");
+            var reallyWantsToWork = await WorkflowConfirmation.Handle("Work is hard though, are you REALLY sure?");
 
-                            WorkStatus =
-                                reallyWantsToWork
-                                    ? "I guess we can work, but I'm not happy about it"
-                                    : "Please don't scare us next time and just ";
-                        })
+            WorkStatus =
+                reallyWantsToWork
+                    ? "I guess we can work, but I'm not happy about it"
+                    : "Please don't scare us next time and just ";
+        })
                     .DisposeWith(viewModelDisposables);
         }
     }

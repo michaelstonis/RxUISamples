@@ -37,11 +37,11 @@ namespace RxUISamples.ViewModels
         public override void RegisterValidation(CompositeDisposable viewModelDisposables)
         {
             UsernameValidation =
-                this.ValidationRule(
-                    vm => vm.Username,
-                    username => !string.IsNullOrEmpty(username),
-                    "You must provide a username")
-                    .DisposeWith(viewModelDisposables);
+this.ValidationRule(
+    vm => vm.Username,
+    username => !string.IsNullOrEmpty(username),
+    "You must provide a username")
+    .DisposeWith(viewModelDisposables);
 
             PasswordValidation =
                 this.ValidationRule(
